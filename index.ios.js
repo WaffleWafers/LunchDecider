@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, TouchableHighlight } from 'react-native'
+import { AppRegistry, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import ViewContainer from './app/components/ViewContainer'
 import ResponseContainer from './app/components/ResponseContainer'
 
@@ -21,9 +21,9 @@ var LunchDecider = React.createClass({
   render() {
     return (
       <ViewContainer>
-        <TouchableHighlight activeOpacity={0.7} underlayColor={'white'} onPress={() => this.setState({questionAsked: true, placesToEatIndex: Math.floor(Math.random()*this.state.placesToEat.length)})}>
+        <TouchableOpacity onPress={() => this.setState({questionAsked: true, placesToEatIndex: Math.floor(Math.random()*this.state.placesToEat.length)})}>
           <Text style={style.questiontext}>Where should I eat today?</Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
         <ResponseContainer placesToEat={this.state.placesToEat} placesToEatIndex={this.state.placesToEatIndex}/>
       </ViewContainer>
     );
