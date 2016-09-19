@@ -4,11 +4,21 @@ import { View, StyleSheet, Text} from 'react-native'
 
 class ResponseContainer extends Component {
   render() {
+    var response;
+
+    if (this.props.questionAsked){
+      response = <Text>
+                   <Text style={style.answerWrapperText}>{"Why don't you try "}</Text>
+                   <Text style={style.answerText}>{this.props.placesToEat[this.props.placesToEatIndex]}</Text>
+                   <Text style={style.answerWrapperText}>{" today?"}</Text>
+                 </Text>;
+    } else {
+      response = <Text> </Text>
+    }
+
     return (
       <View style={style.responseContainer}>
-        <Text style={style.answerWrapperText}>{"Why don't you try "}</Text>
-        <Text style={style.answerText}>{this.props.placesToEat[this.props.placesToEatIndex]}</Text>
-        <Text style={style.answerWrapperText}>{" today?"}</Text>
+        {response}
       </View>
     )
   }

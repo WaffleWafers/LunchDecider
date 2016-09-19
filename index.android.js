@@ -5,49 +5,38 @@
  */
 
 import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import ViewContainer from './app/components/ViewContainer'
+import ResponseContainer from './app/components/ResponseContainer'
 
-class LunchDecider extends Component {
+var LunchDecider = React.createClass({
+  getInitialState() {
+    return {
+      questionAsked: false,
+      placesToEatIndex: 0,
+      placesToEat: ['Burger King', 'McDonalds', 'Pizza Hut', 'Shitty Shawarma Place', 'Tim Hortons']
+    }
+  },
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <ViewContainer>
+        <TouchableOpacity onPress={() => this.setState({questionAsked: true, placesToEatIndex: Math.floor(Math.random()*this.state.placesToEat.length)})}>
+          <Text style={style.questiontext}>Where should I eat today?</Text>
+        </TouchableOpacity>
+        <ResponseContainer placesToEat={this.state.placesToEat} placesToEatIndex={this.state.placesToEatIndex}/>
+      </ViewContainer>
     );
   }
-}
+});
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
+const style = StyleSheet.create({
+  questiontext:{
+    color: 'black',
+    fontSize: 25,
     textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    padding: 10
+  }
 });
 
 AppRegistry.registerComponent('LunchDecider', () => LunchDecider);

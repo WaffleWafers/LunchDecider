@@ -2,10 +2,10 @@
 import React, { Component} from 'react'
 import { View, StyleSheet } from 'react-native'
 
-class ViewContainer extends Component {
+class MainAppContainer extends Component {
   render() {
     return (
-      <View style={style.viewContainer}>
+      <View style={style.mainAppContainer}>
         {this.props.children}
       </View>
     )
@@ -14,13 +14,13 @@ class ViewContainer extends Component {
 
 const style = StyleSheet.create({
 
-  viewContainer: {
+  mainAppContainer: {
     flex: 1,
     flexDirection: "column",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center"
   }
 
 });
 
-module.exports = ViewContainer
+module.exports = MainAppContainer

@@ -2,7 +2,7 @@
 import React, { Component} from 'react'
 import { View, StyleSheet } from 'react-native'
 
-class ViewContainer extends Component {
+class StatusBarBackground extends Component {
   render() {
     return (
       <View style={style.viewContainer}>
@@ -14,7 +14,7 @@ class ViewContainer extends Component {
 
 const style = StyleSheet.create({
 
-  viewContainer: {
+  statusBar: {
     flex: 1,
     flexDirection: "column",
     justifyContent: "flex-start",
@@ -23,4 +23,4 @@ const style = StyleSheet.create({
 
 });
 
-module.exports = ViewContainer
+module.exports = StatusBarBackground
