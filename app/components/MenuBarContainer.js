@@ -18,8 +18,7 @@ const style = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "flex-start",
-    height: 40,
-    backgroundColor: "white",
+    height: 55
   }
 
 });

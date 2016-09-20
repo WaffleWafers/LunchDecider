@@ -26,13 +26,13 @@ var LunchDecider = React.createClass({
           </TouchableOpacity>
           <ResponseContainer questionAsked={this.state.questionAsked} placesToEat={this.state.placesToEat} placesToEatIndex={this.state.placesToEatIndex}/>
         </MainAppContainer>
-        <MenuBarContainer>
-          <TouchableOpacity onPress={() => this.setState({questionAsked: false})}>
-            <Icon name="refresh" size={33} style={style.refresh}/>
+        <MenuBarContainer >
+          <TouchableOpacity  onPress={() => this.setState({questionAsked: false})}>
+            <Icon name="refresh" size={40} style={style.refresh}/>
           </TouchableOpacity>
           <View style={{flex: 1}}/>
           <TouchableOpacity>
-            <Icon name="plus-circle" size={33} style={style.pluscircle}/>
+            <Icon name="plus-circle" size={40} style={style.pluscircle}/>
           </TouchableOpacity>
         </MenuBarContainer>
       </ViewContainer>
@@ -49,11 +49,11 @@ const style = StyleSheet.create({
   },
   pluscircle:{
     color: 'lightgrey',
-    paddingRight: 10
+    paddingRight: 16,
   },
   refresh:{
     color: 'lightgrey',
-    paddingLeft: 10
+    paddingLeft: 16,
   }
 });
 
