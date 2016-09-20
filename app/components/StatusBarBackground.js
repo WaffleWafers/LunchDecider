@@ -1,12 +1,11 @@
 'use strict'
-import React, { Component} from 'react'
+import React, { Component } from 'react'
 import { View, StyleSheet } from 'react-native'
 
 class StatusBarBackground extends Component {
   render() {
     return (
-      <View style={style.viewContainer}>
-        {this.props.children}
+      <View style={style.statusBarBackground}>
       </View>
     )
   }
@@ -14,11 +13,9 @@ class StatusBarBackground extends Component {
 
 const style = StyleSheet.create({
 
-  statusBar: {
-    flex: 1,
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "center"
+  statusBarBackground: {
+    height: 20,
+    backgroundColor: "white",
   }
 
 });
