@@ -9,7 +9,7 @@ class ResponseContainer extends Component {
     if (this.props.questionAsked){
       response = <Text>
                    <Text style={style.answerWrapperText}>{"Why don't you try "}</Text>
-                   <Text style={style.answerText}>{this.props.placesToEat[this.props.placesToEatIndex]}</Text>
+                   <Text style={style.answerText}>{this.props.placeToEat}</Text>
                    <Text style={style.answerWrapperText}>{" today?"}</Text>
                  </Text>;
     } else {

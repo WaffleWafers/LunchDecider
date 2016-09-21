@@ -5,7 +5,7 @@ import { View, StyleSheet } from 'react-native'
 class ViewContainer extends Component {
   render() {
     return (
-      <View style={style.viewContainer}>
+      <View style={[style.viewContainer, this.props.style || {}]}>
         {this.props.children}
       </View>
     )

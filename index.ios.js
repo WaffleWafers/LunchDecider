@@ -1,60 +1,52 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
-import ViewContainer from './app/components/ViewContainer'
-import ResponseContainer from './app/components/ResponseContainer'
-import MainAppContainer from './app/components/MainAppContainer'
-import StatusBarBackground from './app/components/StatusBarBackground'
-import MenuBarContainer from './app/components/MenuBarContainer'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import { AppRegistry, Navigator, StyleSheet, Text } from 'react-native'
+import MainAppScreen from './app/screens/MainAppScreen'
+import RestaurantListScreen from './app/screens/RestaurantListScreen'
 
-var LunchDecider = React.createClass({
-  getInitialState() {
-    return {
-      questionAsked: false,
-      placesToEatIndex: 0,
-      placesToEat: ['thai', 'shawarma', 'pizza']
+class LunchDecider extends Component {
+
+  _renderScene(route, navigator) {
+    var globalNavigatorProps = { navigator }
+
+    switch(route.ident) {
+      case "MainApp":
+        return (
+          <MainAppScreen
+            {...globalNavigatorProps} />
+        )
+      case "RestaurantList":
+        return (
+          <RestaurantListScreen
+            {...globalNavigatorProps}
+            placesToEat={route.placesToEat} />
+        )
+      default:
+        return (
+          <Text>You messed up!</Text>
+        )
     }
-  },
+  }
 
   render() {
     return (
-      <ViewContainer>
-        <StatusBarBackground/>
-        <MainAppContainer>
-          <TouchableOpacity onPress={() => this.setState({questionAsked: true, placesToEatIndex: Math.floor(Math.random()*this.state.placesToEat.length)})}>
-            <Text style={style.questiontext}>Where should I eat today?</Text>
-          </TouchableOpacity>
-          <ResponseContainer questionAsked={this.state.questionAsked} placesToEat={this.state.placesToEat} placesToEatIndex={this.state.placesToEatIndex}/>
-        </MainAppContainer>
-        <MenuBarContainer >
-          <TouchableOpacity  onPress={() => this.setState({questionAsked: false})}>
-            <Icon name="refresh" size={40} style={style.refresh}/>
-          </TouchableOpacity>
-          <View style={{flex: 1}}/>
-          <TouchableOpacity>
-            <Icon name="plus-circle" size={40} style={style.pluscircle}/>
-          </TouchableOpacity>
-        </MenuBarContainer>
-      </ViewContainer>
-    );
+      <Navigator
+        initialRoute={{ident: "MainApp"}}
+        ref="appNavigator"
+        style={style.navigatorStyles}
+        renderScene={(route, navigator) => this._renderScene(route, navigator)}
+        />
+
+    )
   }
-});
+
+}
 
 const style = StyleSheet.create({
-  questiontext:{
-    color: 'black',
-    fontSize: 25,
-    textAlign: 'center',
-    padding: 10
-  },
-  pluscircle:{
-    color: 'lightgrey',
-    paddingRight: 16,
-  },
-  refresh:{
-    color: 'lightgrey',
-    paddingLeft: 16,
+
+  navigatorStyles: {
+
   }
-});
+
+})
 
 AppRegistry.registerComponent('LunchDecider', () => LunchDecider);
