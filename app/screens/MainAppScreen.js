@@ -9,14 +9,15 @@ import StatusBarBackground from '../components/StatusBarBackground'
 import MenuBarContainer from '../components/MenuBarContainer'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
-var MainAppScreen = React.createClass({
-  getInitialState() {
-    return {
+class MainAppScreen extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
       questionAsked: false,
       placesToEatIndex: 0,
       placesToEat: ['thai', 'shawarma', 'pizza']
     }
-  },
+  }
 
   render() {
     return (
@@ -39,7 +40,7 @@ var MainAppScreen = React.createClass({
         </MenuBarContainer>
       </ViewContainer>
     );
-  },
+  }
 
   _navigateToRestaurantList() {
     this.props.navigator.push({
@@ -47,7 +48,7 @@ var MainAppScreen = React.createClass({
       placesToEat: this.state.placesToEat
     })
   }
-});
+}
 
 const style = StyleSheet.create({
   questiontext:{

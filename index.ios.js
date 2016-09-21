@@ -22,7 +22,7 @@ class LunchDecider extends Component {
         )
       default:
         return (
-          <Text>You messed up!</Text>
+          <Text style={{size:30}}>You messed up!</Text>
         )
     }
   }
