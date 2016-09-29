@@ -5,7 +5,7 @@ import { View, StyleSheet } from 'react-native'
 class StatusBarBackground extends Component {
   render() {
     return (
-      <View style={style.statusBarBackground}>
+      <View style={[style.statusBarBackground, this.props.style || {}]}>
       </View>
     )
   }

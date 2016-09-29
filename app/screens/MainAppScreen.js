@@ -7,7 +7,7 @@ import ResponseContainer from '../components/ResponseContainer'
 import MainAppContainer from '../components/MainAppContainer'
 import StatusBarBackground from '../components/StatusBarBackground'
 import MenuBarContainer from '../components/MenuBarContainer'
-import Icon from 'react-native-vector-icons/FontAwesome'
+import Icon from 'react-native-vector-icons/EvilIcons'
 
 class MainAppScreen extends Component {
   constructor(props) {
@@ -31,11 +31,11 @@ class MainAppScreen extends Component {
         </MainAppContainer>
         <MenuBarContainer >
           <TouchableOpacity onPress={() => this.setState({questionAsked: false})}>
-            <Icon name="refresh" size={40} style={style.refresh}/>
+            <Icon name="refresh" size={45} style={style.refresh}/>
           </TouchableOpacity>
           <View style={{flex: 1}}/>
           <TouchableOpacity onPress={() => this._navigateToRestaurantList()}>
-            <Icon name="plus-circle" size={40} style={style.pluscircle}/>
+            <Icon name="plus" size={45} style={style.pluscircle}/>
           </TouchableOpacity>
         </MenuBarContainer>
       </ViewContainer>

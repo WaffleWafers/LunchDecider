@@ -21,6 +21,7 @@ const style = StyleSheet.create({
     alignItems: "center"
   }
 
+
 });
 
 module.exports = ViewContainer
